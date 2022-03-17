@@ -9,6 +9,8 @@ We can also check the 1000 sum condition in the same loop cheaply thanks to the 
 
 The last bit was to add a variable (ans) to break out of all the nested loops since I didn't write this as a function, but in general I'm quite happy with this! Took 4.8665390 seconds, which I think is good enough to not bother with trying the option where I generate all the triplets (or all the a,b,c combos that sum to 1000) as well.
 
+Ok, so just before I went to bed I googled this one, and it turns out you can do it insanely fast (see problem9Better.py from https://radiusofcircle.blogspot.com/2016/04/problem-9-project-euler-solution-with-python.html) with either Dickinson's method or the one from here (https://www.mathsisfun.com/numbers/pythagorean-triples.html), which are both much faster ways of actually finding valid triplets. problem9Better uses Euclid's Formula, which I haven't seen before, and completely smashes my "dumb" solution, running in 0.0001411437 seconds. Ouch. Oh well, I guess I'm not a mathematician... 
+
 """
 from time import perf_counter 
 
