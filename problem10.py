@@ -3,6 +3,7 @@ Ok, so my first try for this one was re-using the code from problem 7, but that'
 
 """
 from time import perf_counter 
+from math import sqrt, floor
 
 # TIME CODE STARTS
 
@@ -11,31 +12,26 @@ start = perf_counter()
 ##########################################################################
 
 
-var = 5 #First non-even prime + 2 (since we only want odd numbers)
+def sieve(n):
 
-primes = {3} # First non-even prime, no point checking 2 since it's the only even prime
+    sum1 = 0
 
-sum = 2 # Sum of the primes we've found
+    isPrime = [True] * (n-2) #Offset because we start at 2, so we don't want 0 or 1
+    print(len(isPrime))
 
-index = 2 # Because 3 is the 2nd prime
+    max = sqrt(n)
+    max = floor(max)
 
-while index != 2000000:
-    prime = True
-    for x in primes:
-        if var % x == 0:
-            var += 2
-            prime = False
-            break
-    if prime:
-        primes.add(var)
-        sum += var
-        print(index)
-        if index == 2000000: #Checking 10,000 because the index hasn't been incremented yet, but this is actually the prime at index 10,001
-            print(sum)
-            break
-        var += 2
-        index += 1
+    for i in range(2,max):
+        if isPrime[i-2]:
+            for x in range((i-2)**2, n-2, i):
+                isPrime[x] = False
 
+    return isPrime
+    
+
+
+print(sieve(3))
 
 ##########################################################################
 
