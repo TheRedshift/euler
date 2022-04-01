@@ -5,7 +5,6 @@ Ok, came back to this later, gave up and decided to just use numpy, and honestly
 
 """
 from time import perf_counter 
-from math import sqrt, floor
 import numpy as np
 
 # TIME CODE STARTS
